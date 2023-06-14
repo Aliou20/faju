@@ -193,45 +193,47 @@ function AjoutRendezvous() {
               )}
           </Input.Wrapper>
 
-          <Grid style={{ fontSize: "0.8rem", fontWeight: "700" }} mt="sm">
-            <Grid.Col span={12} sm={6}>
-              <TextInput
-                value={rendezvous.heureDebut}
-                onChange={(e) =>
-                  setRendezvous({
-                    ...rendezvous,
-                    heureDebut: e.target.value,
-                  })
-                }
-                label="Début du rendez-vous"
-                type="time"
-              />
-              {errorTime && (
-                <Alert icon={<IconAlertCircle size="1rem" />} color="red">
-                  {errorTime}
-                </Alert>
-              )}
-            </Grid.Col>
+          <Input.Wrapper className={classes.input}>
+            <Grid style={{ fontSize: "0.8rem", fontWeight: "700" }} mt="sm">
+              <Grid.Col span={12} sm={6}>
+                <TextInput
+                  value={rendezvous.heureDebut}
+                  onChange={(e) =>
+                    setRendezvous({
+                      ...rendezvous,
+                      heureDebut: e.target.value,
+                    })
+                  }
+                  label="Début du rendez-vous"
+                  type="time"
+                />
+                {errorTime && (
+                  <Alert icon={<IconAlertCircle size="1rem" />} color="red">
+                    {errorTime}
+                  </Alert>
+                )}
+              </Grid.Col>
 
-            <Grid.Col span={12} sm={6}>
-              <TextInput
-                value={rendezvous.heureFin}
-                onChange={(e) =>
-                  setRendezvous({
-                    ...rendezvous,
-                    heureFin: e.target.value,
-                  })
-                }
-                label="Fin du rendez-vous"
-                type="time"
-              />
-              {errorTime && (
-                <Alert icon={<IconAlertCircle size="1rem" />} color="red">
-                  {errorTime}
-                </Alert>
-              )}
-            </Grid.Col>
-          </Grid>
+              <Grid.Col span={12} sm={6}>
+                <TextInput
+                  value={rendezvous.heureFin}
+                  onChange={(e) =>
+                    setRendezvous({
+                      ...rendezvous,
+                      heureFin: e.target.value,
+                    })
+                  }
+                  label="Fin du rendez-vous"
+                  type="time"
+                />
+                {errorTime && (
+                  <Alert icon={<IconAlertCircle size="1rem" />} color="red">
+                    {errorTime}
+                  </Alert>
+                )}
+              </Grid.Col>
+            </Grid>
+          </Input.Wrapper>
 
           <Textarea
             value={rendezvous.description}
