@@ -29,6 +29,14 @@ const rendezvousModel = mongoose.Schema({
         type : Object,
         // require : [true , 'Vieullez donner la description.']
     },
+    heureDebut : {
+        type : String,
+        require : [true , "Vieullez donner l'heure debut du rendez-vous"]
+    },
+    heureFin : {
+        type : String,
+        require : [true , "Vieullez donner l'heure fin du rendez-vous"]
+    }
    
 })
 

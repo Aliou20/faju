@@ -11,19 +11,9 @@ const patientsRoutes = require('./routes/patientsRoutes')
 const rendezvousRoutes = require('./routes/rendezvousRoutes')
 const cors = require('cors')
 const connectToMongoDB = require('./config/db')
-// const { getPrescriptions } = require('./controllers/prescriptionsControllers')
-// const passport = require('passport')
+
 
 const app = express()
-// app.use(session({ secret: "cats" }))
-// app.use(passport.initialize())
-// app.use(passport.session())
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false,
-//   cookie: { secure: true }
-// }))
 
 app.use(cors())
 

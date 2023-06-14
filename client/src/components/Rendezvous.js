@@ -17,7 +17,6 @@ import {
   } from "../redux/services/rendezvousService";
   import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
   import { getPatients } from "../redux/services/patientService";
-  import { GrFormView } from "react-icons/gr";
   import { useNavigate } from "react-router-dom";
   import { openConfirmModal } from "@mantine/modals";
   import { toast } from "react-hot-toast";
@@ -86,14 +85,14 @@ import {
   }));
   
   export default function Rendezvous() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const { classes, cx } = useStyles();
     const [scrolled, setScrolled] = useState(false);
     const dispatch = useDispatch();
     const rendezVous = useSelector((state) => state.rendezvous);
-    const currentUser = useSelector((state) => state.user); 
+    const currentUser = useSelector((state) => state.user);
+
     
-    console.log(rendezVous);
     useEffect(() => {
       dispatch(getPatients());
       dispatch(getRendezvous());
@@ -141,17 +140,9 @@ import {
               </button>
             </Grid>
             <ScrollArea
-              // h={300}
-              // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
-              // style={{ width: '100%'}}
-              // width={{
-              //   sm : '300',
-              //   base : "100%"
-              // }}
             >
               <Table
                 className={classes.Table}
-                // style={{ width: 600 }}
               >
                 <thead
                   className={cx(classes.header, { [classes.scrolled]: scrolled })}
@@ -165,7 +156,7 @@ import {
                 </thead>
                 <tbody>
                   {rendezVous?.data
-                    ?.filter((item) => item.userId === currentUser._id)
+                    ?.filter((item) => item?.userId === currentUser._id)
                     ?.map((rv) => (
                       <tr key={rv?._id}>
                         <td>{rv?.dataPatient?.firstname}</td>
