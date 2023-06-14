@@ -32,7 +32,7 @@ const rendezvousSlice = createSlice({
                 ...state,
                 loading : false,
                 isSuccess : true,
-                data : [...state.data , payload.data ],
+                data : payload.data,
                 getRendezvousStatus : "success",
                 addRendezvousStatus : "",
                 updateRendezvousStatus : "",
