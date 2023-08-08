@@ -167,11 +167,11 @@ const addRendezvous = async (req, res) => {
 
     const smsData = `username=${username}&password=${password}&msisdn=%2B${findPatient.phone}&msg=${message}&sender=Faju`;
     
-    // await axios.post("https://api-public-2.mtarget.fr/messages", smsData, {
-    //   headers: {
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //   }
-    // });
+    await axios.post("https://api-public-2.mtarget.fr/messages", smsData, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      }
+    });
 
     return res.status(200).json({
       data: response,
