@@ -97,7 +97,7 @@ import {
       dispatch(getPatients());
       dispatch(getRendezvous());
     }, [dispatch]);
-  
+    
     const openDeleteModal = (rendezvous) =>
       openConfirmModal({
         title: "Supprimer la préscription",

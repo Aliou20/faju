@@ -2,9 +2,8 @@ const mongoose = require("mongoose")
 
 const rendezvousModel = mongoose.Schema({
     patientId : {
-    
         type : mongoose.Schema.Types.ObjectId,
-        ref : "User",
+        ref : "Patient",
         require : [true , 'Veuillez choisir un patient.']
     },
     userId : {
@@ -12,10 +11,10 @@ const rendezvousModel = mongoose.Schema({
         ref : 'User'
     },
   
-    nomCompletPatient : {
-        type : String,
-        require : [true  , "Vieullez écrire le nom complet du patient."]
-    },
+    // nomCompletPatient : {
+    //     type : String,
+    //     require : [true  , "Vieullez écrire le nom complet du patient."]
+    // },
    
     dateRendezvous : {
         type : Date , 

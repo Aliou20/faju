@@ -21,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 import { IconAlertCircle } from "@tabler/icons";
 import { addRendezvous } from "../redux/services/rendezvousService";
 import { format } from "date-fns";
+import axios from "axios";
+import instance from "../axios/globalInstance";
 
 // ? ################### STYLE MANTINE ############################
 const useStyles = createStyles((theme) => ({
@@ -52,6 +54,23 @@ function AjoutRendezvous() {
     heureFin: "",
   });
 
+
+
+  const [patient , setPatient] = useState({})
+  
+
+
+  const getOnePatient = async (id) => {
+    try{
+      const response = await instance.get(`/patient/${id}`)
+      setPatient(response.data)
+      console.log(patient);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   // ? ####################### DISPATCHER LA FONCTION QUI RECUPERE LES PATIENTS #########################
   useEffect(() => {
     dispatch(getPatients());
@@ -64,6 +83,7 @@ function AjoutRendezvous() {
       ...rendezvous,
       userId: currentUser._id,
     };
+
 
     // ? ####################### AJOUTER UN RENDEZ-VOUS ######################################
     if (
@@ -84,6 +104,8 @@ function AjoutRendezvous() {
           if (res.type === "rendezvous/addRendezvous/rejected") {
             SetErrorTime(res.payload.message);
           } else {
+            // getOnePatient(newRendezvous.patientId)
+            // axios.post('http://localhost:5550/api/sms', {msisdn:"221765729896" , message : 'Vous avez fixer un rendez-vous'} )
             toast("Rendez-vous ajouté avec success", { icon: "👏" });
             setRendezvous({
               description: "",

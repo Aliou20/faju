@@ -15,7 +15,7 @@ import {
   addRendezvous,
   updateRendezvous,
 } from "../redux/services/rendezvousService";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 const useStyles = createStyles((theme) => ({
   input: {
@@ -32,14 +32,13 @@ function AddRendezvous({
   error,
   setError,
 }) {
-
-
   const { classes } = useStyles();
   const dispatch = useDispatch();
 
+  console.log('salut');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     if (
       rendezvous.nomCompletPatient === "" ||
@@ -80,8 +79,8 @@ function AddRendezvous({
           });
       }
     }
-
   };
+
 
   return (
     <div>
@@ -94,7 +93,6 @@ function AddRendezvous({
         title={title}
       >
         <form onSubmit={handleSubmit}>
-
           <Input.Wrapper
             className={classes.input}
             id={"3"}
@@ -136,34 +134,41 @@ function AddRendezvous({
             required
           >
             <div>
-            <input
-              style={{
-                fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
-                height: "2.25rem",
-                color: "transparent",
-                lineHeight: 'calc(2.25rem - 0.125rem)',
-                border: '0.0625rem solid #ced4da',
-                boxSizing: 'border-box',
-                fontSize:' 0.875rem',
-                width: '100%',
-                color: '#000',
-                display: 'block',
-                textAlign: 'left',
-                backgroundColor: '#fff',
-                transition: 'border-color 100ms ease',
-                minHeight: '2.25rem',
-                paddingLeft: 'calc(2.25rem / 3)',
-                paddingRight: '2.25rem',
-                borderRadius: '0.25rem',
-              }}
-              type="date"
-              placeholder="date de rendez vous"
-              value={rendezvous._id ? format(new Date(rendezvous.dateRendezvous), 'yyyy-MM-dd') : rendezvous.dateRendezvous}
-              onChange={(e) =>
-                setRendezvous({ ...rendezvous, dateRendezvous: e.target.value })
-              }
-            />
-
+              <input
+                style={{
+                  fontFamily:
+                    "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji",
+                  height: "2.25rem",
+                  color: "transparent",
+                  lineHeight: "calc(2.25rem - 0.125rem)",
+                  border: "0.0625rem solid #ced4da",
+                  boxSizing: "border-box",
+                  fontSize: " 0.875rem",
+                  width: "100%",
+                  color: "#000",
+                  display: "block",
+                  textAlign: "left",
+                  backgroundColor: "#fff",
+                  transition: "border-color 100ms ease",
+                  minHeight: "2.25rem",
+                  paddingLeft: "calc(2.25rem / 3)",
+                  paddingRight: "2.25rem",
+                  borderRadius: "0.25rem",
+                }}
+                type="date"
+                placeholder="date de rendez vous"
+                value={
+                  rendezvous._id
+                    ? format(new Date(rendezvous.dateRendezvous), "yyyy-MM-dd")
+                    : rendezvous.dateRendezvous
+                }
+                onChange={(e) =>
+                  setRendezvous({
+                    ...rendezvous,
+                    dateRendezvous: e.target.value,
+                  })
+                }
+              />
             </div>
             {error === "Viellez remplire ce champ ." &&
               rendezvous.dateRendezvous === "" && (
@@ -192,9 +197,7 @@ function AddRendezvous({
       mx="auto"
       value={rendezvous.dateRendezvous}
              onChange={(e) => setRendezvous({...rendezvous , dateRendezvous : e.target.value})} /> */}
-          <div>
-            
-          </div>
+          <div></div>
 
           <Textarea
             value={rendezvous.description}

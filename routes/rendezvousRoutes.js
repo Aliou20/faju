@@ -1,6 +1,6 @@
 const express = require('express')
 const { getRendezvous, addRendezvous, updateRendezvous, deleteRendezvous} = require('../controllers/rendezvousControllers')
-const router = express.Router()
+const router = express.Router()     
 
 router.get('/' , getRendezvous)
 router.post('/' , addRendezvous)

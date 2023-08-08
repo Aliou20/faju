@@ -41,6 +41,7 @@ const patientSlice = createSlice({
                 getPatientStatus : "rejected",
             }
         },
+
         [addPatient.pending] : (state) => {
             return {
                 ...state,
@@ -65,6 +66,7 @@ const patientSlice = createSlice({
                 message : payload.data
             }
         },
+
         [deletePatients.pending] : (state) => {
             return {
                 ...state,
@@ -90,6 +92,7 @@ const patientSlice = createSlice({
                 message : payload
             }
         },
+        
         [updatePatients.pending] : (state) => {
             return {
                 ...state,

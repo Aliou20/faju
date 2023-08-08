@@ -169,7 +169,7 @@ function AddPatient({opened , setOpened , title , patients , setPatients , error
             onChange={(e) => setPatients({...patients, phone : e.target.value})}
             placeholder="Téléphone" 
             component={IMaskInput} 
-            mask="+221 00-000-00-00"
+            // mask="221 00 000 00 00"
         />
         {
         error === "Viellez remplire ce champ ." && patients?.phone === "" && (
